@@ -9,6 +9,7 @@ require('dotenv/config');
 const postTestingRoute = require('./routes/postTesting');
 const userCredentialsRoute = require('./routes/userCredentials');
 const shopInventoryRoute = require('./routes/shopInventory');
+const excelExportRoute = require('./routes/excelExport');
 
 app.use(bodyParser.json());
 
@@ -21,6 +22,7 @@ app.get('/', (req,res) => {
 
 app.use(userCredentialsRoute);
 app.use(shopInventoryRoute);
+app.use(excelExportRoute);
 
 
 // Connect to db
@@ -33,5 +35,3 @@ mongoose.connect(process.env.DB_CONNECTION_LINK,
 
 // Start listening to the server
 app.listen(8080);
-
-//Test for Git Turtoise

@@ -16,6 +16,11 @@ var ShopInventorySchema = new mongoose.Schema({
     Quantity: {
         type: Number, 
         required: true
+    },
+
+    Price: {
+        type: Number,
+        required: true
     }
 /*
     Expiration_Date: {

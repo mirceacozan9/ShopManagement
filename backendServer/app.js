@@ -2,6 +2,7 @@ const express = require('express');
 // Create the express application 
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv/config');
 
@@ -23,7 +24,7 @@ app.get('/', (req,res) => {
 app.use(userCredentialsRoute);
 app.use(shopInventoryRoute);
 app.use(excelExportRoute);
-
+app.use(cors());
 
 // Connect to db
 // Mongo Atlas user: alexandru.balazs99@e-uvt.ro

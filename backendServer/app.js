@@ -9,7 +9,7 @@ require('dotenv/config');
 const postTestingRoute = require('./routes/postTesting');
 const userCredentialsRoute = require('./routes/userCredentials');
 const shopInventoryRoute = require('./routes/shopInventory');
-const excelExportRoute = require('./routes/excelExport');
+const pdfExportRoute = require('./routes/pdfExportRoute')
 
 app.use(bodyParser.json());
 
@@ -22,7 +22,7 @@ app.get('/', (req,res) => {
 
 app.use(userCredentialsRoute);
 app.use(shopInventoryRoute);
-app.use(excelExportRoute);
+app.use(pdfExportRoute);
 
 
 // Connect to db

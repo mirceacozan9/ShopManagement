@@ -1,10 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const fs = require('fs');
-const moment = require('moment');
 const ExcelJs = require('exceljs');
 const ShopInventoryModel = require('../models/ShopInventoryModel');
-const { db } = require('../models/ShopInventoryModel');
 
 router.get('/excel', async (req, res) => {
 
@@ -29,10 +26,10 @@ items.map(item => {
     products.push(newItem)
 });
 
-workbook.xlsx.writeFile('Items.xlsx')
 worksheet.addRows(products);
+workbook.xlsx.writeFile('./tmp/Items.xlsx')
 
-res.download('./Items.xlsx', 'Inventory.xlsx')
+res.download('./tmp/Items.xlsx', 'Inventory.xlsx')
 console.log('File downloaded')
 });
 

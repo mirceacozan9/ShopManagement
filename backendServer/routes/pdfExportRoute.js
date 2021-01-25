@@ -37,11 +37,11 @@ router.get('/pdfexport', async (req, res) => {
             products.push(newItem)
         })
         finalHTML = createHTML(products)
-        pdf.create(finalHTML, options).toFile('../tmp/GeneratedReport.pdf', function(err, res){
+        pdf.create(finalHTML, options).toFile('./tmp/GeneratedReport.pdf', function(err, res){
             if(err) return console.log(err);
             console.log(res)
         })
-        res.download('../tmp/GeneratedReport.pdf', 'GeneratedReport.pdf')
+        res.download('./tmp/GeneratedReport.pdf', 'GeneratedReport.pdf')
     })
 
 

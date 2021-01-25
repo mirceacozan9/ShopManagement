@@ -11,6 +11,7 @@ const postTestingRoute = require('./routes/postTesting');
 const userCredentialsRoute = require('./routes/userCredentials');
 const shopInventoryRoute = require('./routes/shopInventory');
 const pdfExportRoute = require('./routes/pdfExportRoute')
+const excelExport = require('./routes/excelExport')
 
 app.use(bodyParser.json());
 
@@ -24,8 +25,8 @@ app.get('/', (req,res) => {
 app.use(userCredentialsRoute);
 app.use(shopInventoryRoute);
 app.use(pdfExportRoute);
+app.use(excelExport);
 
-app.use(excelExportRoute);
 app.use(cors());
 
 // Connect to db
